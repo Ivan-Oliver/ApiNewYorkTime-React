@@ -3,8 +3,7 @@ import { booklist, fetchData, getListDetails } from "../src/services/api"
 import Card from './components/card/card';
 import { ThemeProvider } from 'styled-components';
 import theme from './styles/theme';
-import './App.css';
-import { MainContainer, ContainerDetails, Title, ButtonAmazon, EnlaceAmazon, Image, Description, BackButton } from './components/card/style'
+import { MaxContenedor, MainContainer, ContainerDetails, Title, ButtonAmazon, EnlaceAmazon, Image, Description, BackButton } from './components/card/style'
 
 function App() {
   const [data, setData] = useState<booklist[]>([])
@@ -26,9 +25,7 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-    <div className="App">
-      <header className="App-header">
-        <div className='cards'>
+        <MaxContenedor>
           {showList && data?.map(bookList => (
             <Card 
             title={bookList.display_name} 
@@ -54,9 +51,7 @@ function App() {
             
 
           ))}
-        </div>
-      </header>
-    </div>
+        </MaxContenedor>
     </ThemeProvider>
   );
 }

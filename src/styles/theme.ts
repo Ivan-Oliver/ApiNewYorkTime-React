@@ -19,6 +19,7 @@ const theme = {
     grey500: '#819098',
     grey700: '#9E9E9E',
     grey900: '#6E7A76',
+    grey1000: '#2a2a2a',
     white100: '#FFFFFF',
     white200: '#F5F5F5',
     white300: '#E5E5E5',
@@ -26,7 +27,7 @@ const theme = {
     white500: '#C4C4C4',
     white700: '#BCC6CC',
     red100: '#E53935',
-    pink100: '##f72faa',
+    pink100: '#f72faa',
     yellow: 'rgb(254, 153, 1)'
 
 

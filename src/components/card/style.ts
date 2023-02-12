@@ -1,4 +1,13 @@
 import styled, { css } from "styled-components";
+//Dasboards
+export const MaxContenedor = styled.div`
+display: flex;
+text-align: center;
+font-size: calc(10px + 2vmin);
+flex-wrap: wrap;
+padding-left: 90px;
+background-color: ${({ theme }) => theme.colors.grey1000};
+`
 
 export const Container = styled.div`
 display: flex;
@@ -13,7 +22,7 @@ export const Content = styled.div`
 `
 
 const CommonTextStyles = css`
- color: ${({theme}) => theme.colors.white100};
+ color: ${({ theme }) => theme.colors.white100};
 `
 export const Title = styled.p`
  ${CommonTextStyles}
@@ -25,6 +34,7 @@ export const Description = styled.p`
 
 export const Divider = styled.hr`
 `
+//Details
 export const MainContainer = styled.div`
 display: flex;
     flex-wrap: wrap;
@@ -60,13 +70,13 @@ export const ButtonAmazon = styled.button`
     text-decoration: none;
     width: fit-content;
     &:hover {
-    background-color: ${({theme}) => theme.colors.blue300};
+    background-color: ${({ theme }) => theme.colors.blue300};
     font-size: 14px;
     }
 `
 
 export const EnlaceAmazon = styled.a`
-    color: ${({theme}) => theme.colors.black};
+    color: ${({ theme }) => theme.colors.black};
     font-weight: bold;
 `
 
@@ -78,7 +88,7 @@ export const Image = styled.img`
 `
 
 export const BackButton = styled.button`
-    background-color: ${({theme}) => theme.colors.blue300};
+    background-color: ${({ theme }) => theme.colors.blue300};
     font-weight: bold;
     border: none;
     border-radius: 2px;
@@ -95,7 +105,7 @@ export const BackButton = styled.button`
     text-decoration: none;
     width: fit-content;
     &:hover {
-    color: ${({theme}) => theme.colors.white100};
-    background-color: ${({theme}) => theme.colors.black};
+    color: ${({ theme }) => theme.colors.white100};
+    background-color: ${({ theme }) => theme.colors.black};
     font-size: 14px;
     }`
