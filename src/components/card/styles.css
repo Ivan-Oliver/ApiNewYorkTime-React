@@ -1,22 +1,22 @@
 
 
 .back{
-    font-weight: bolder;
-    display: inline-block;
-    margin-top: 20px;
-    margin-left: 10px;
-    margin-bottom: 10px;
-    padding: 10px 20px;
-    font-size: 12px;
-    cursor: pointer;
-    text-align: center;	
-    text-decoration: none;
-    outline: none;
-    color: Black;
     background-color: white;
     border: none;
-    box-shadow: 0 2px #999;
     border-radius: 2px;
+    box-shadow: 0 2px #999;
+    color: Black;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: bolder;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-top: 20px;
+    outline: none;
+    padding: 10px 20px;
+    text-align: center;	
+    text-decoration: none;
     width: fit-content;
 }
 
@@ -70,20 +70,24 @@ img {
 }
 
 .buttonAmazon {
-    display: inline-block;
-    margin-top: 20px;
-    margin-left: 10px;
-    margin-bottom: 10px;
-    padding: 10px 20px;
-    font-size: 12px;
-    cursor: pointer;
-    text-align: center;	
-    text-decoration: none;
-    outline: none;
-    color: white;
     background-color: orange;
     border: none;
-    box-shadow: 0 2px #999;
     border-radius: 2px;
+    box-shadow: 0 2px #999;
+    color: white;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 12px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-top: 20px;
+    outline: none;
+    padding: 10px 20px;
+    text-align: center;	
+    text-decoration: none;
     width: fit-content;
+}
+
+.buttonAmazon:hover {
+    color:black;
 }

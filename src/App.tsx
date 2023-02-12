@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
-import './App.css';
 import { booklist, fetchData, getListDetails } from "../src/services/api"
 import Card from './components/card/card';
+import { ThemeProvider } from 'styled-components';
+import theme from './styles/theme';
+import './App.css';
 
 function App() {
   const [data, setData] = useState<booklist[]>([])
@@ -22,6 +24,7 @@ function App() {
   }
 
   return (
+    <ThemeProvider theme={theme}>
     <div className="App">
       <header className="App-header">
         <div className='cards'>
@@ -40,10 +43,9 @@ function App() {
             <>
             <div className='main-content'>
             <div className="container-details">
-                <p className='title' >{listDetails.title}</p>
-                <br />
+                <p>{listDetails.title}</p>
                <img src={listDetails.book_image} ></img>
-                <p className='description' >{listDetails.description}</p>
+                <p>{listDetails.description}</p>
                 <div><a className='buttonAmazon' href={listDetails.amazon_product_url}>Amazon</a></div>
               </div>
             </div>
@@ -54,6 +56,8 @@ function App() {
         </div>
       </header>
     </div>
+    </ThemeProvider>
   );
 }
+
 export default App;
