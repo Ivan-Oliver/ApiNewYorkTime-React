@@ -4,6 +4,7 @@ import Card from './components/card/card';
 import { ThemeProvider } from 'styled-components';
 import theme from './styles/theme';
 import './App.css';
+import { MainContainer, ContainerDetails, Title, ButtonAmazon, EnlaceAmazon, Image, Description, BackButton } from './components/card/style'
 
 function App() {
   const [data, setData] = useState<booklist[]>([])
@@ -38,17 +39,17 @@ function App() {
             onClick={callListDetails}
             />
           ))}
-          <header><button className="back" onClick={() => setShowList(true)}>Back</button></header>
+          <header><BackButton className="back" onClick={() => setShowList(true)}>Back</BackButton></header>
           {!showList && dataDetails?.map(listDetails => (
             <>
-            <div className='main-content'>
-            <div className="container-details">
-                <p>{listDetails.title}</p>
-               <img src={listDetails.book_image} ></img>
-                <p>{listDetails.description}</p>
-                <div><a className='buttonAmazon' href={listDetails.amazon_product_url}>Amazon</a></div>
-              </div>
-            </div>
+            <MainContainer>
+            <ContainerDetails>
+                <Title>{listDetails.title}</Title>
+               <Image src={listDetails.book_image} ></Image>
+                <Description>{listDetails.description}</Description>
+                <ButtonAmazon><EnlaceAmazon href={listDetails.amazon_product_url}>Amazon</EnlaceAmazon></ButtonAmazon>
+              </ContainerDetails>
+            </MainContainer>
              </>
             
 

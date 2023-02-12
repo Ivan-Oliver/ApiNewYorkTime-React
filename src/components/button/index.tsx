@@ -1,7 +1,6 @@
 import { FC } from 'react'
 import { Props } from './types'
-import './style.css'
-import { CustomButton } from './style'
+import { CustomButton } from './styles'
 
 const Button: FC<Props> = ({onClick}) => {
     return(

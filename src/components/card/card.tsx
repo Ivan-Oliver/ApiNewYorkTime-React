@@ -1,19 +1,22 @@
 import { FC } from 'react'
 import { Props } from './types'
 import Button from '../button'
-import './styles.css'
+import {Container,  Content, Title, Description, Divider } from './style'
+
 
 const Card: FC<Props> = ({ title, description, newest_published_date, oldest_published_date,listName, onClick}) => {
     return (
-        <div className='card'>
-            <p>{title}</p>
-            <hr />
-            <p>{description}</p>
-            <p>{newest_published_date}</p>
-            <p>{oldest_published_date}</p>
+        <Container>
+        <Content>
+            <Title>{title}</Title>
+            <Divider />
+            <Description>{description}</Description>
+            <Description>{newest_published_date}</Description>
+            <Description>{oldest_published_date}</Description>
             <Button onClick={()=>onClick(listName)}/>
 
-        </div>
+        </Content>
+        </Container>
     )
 }
 
