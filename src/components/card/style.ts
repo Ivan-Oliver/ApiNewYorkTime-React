@@ -1,26 +1,5 @@
 import styled, { css } from "styled-components";
 //Dasboards
-export const MaxContenedor = styled.div`
-display: flex;
-text-align: center;
-font-size: calc(10px + 2vmin);
-flex-wrap: wrap;
-padding-left: 90px;
-background-color: ${({ theme }) => theme.colors.grey1000};
-`
-
-export const Container = styled.div`
-display: flex;
-flex-flow: column;  
-box-shadow: 0px 0px 10px 2px rgba(176,176,176,1);
-    margin: 20px;
-    padding: 15px;
-    width: 200px;
-`
-export const Content = styled.div`
-    
-`
-
 const CommonTextStyles = css`
  color: ${({ theme }) => theme.colors.white100};
 `
@@ -35,23 +14,7 @@ export const Description = styled.p`
 export const Divider = styled.hr`
 `
 //Details
-export const MainContainer = styled.div`
-display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    justify-content: flex-start;
-    margin: 15px 25px; 
-`
 
-export const ContainerDetails = styled.div`
--webkit-box-shadow: 0px 0px 2px 1px rgba(176,176,176,1);
-    -moz-box-shadow: 0px 0px 2px 1px rgba(176,176,176,1);
-    box-shadow: 0px 0px 10px 2px rgba(176,176,176,1);
-    display: flex;
-    flex-direction: column;
-    padding: 15px;
-    width: 200px;
-`
 
 export const ButtonAmazon = styled.button`
  background-color: orange;
@@ -75,7 +38,7 @@ export const ButtonAmazon = styled.button`
     }
 `
 
-export const EnlaceAmazon = styled.a`
+export const  EnlaceAmazon = styled.a`
     color: ${({ theme }) => theme.colors.black};
     font-weight: bold;
 `
@@ -88,6 +51,7 @@ export const Image = styled.img`
 `
 
 export const BackButton = styled.button`
+position: absolute;
     background-color: ${({ theme }) => theme.colors.blue300};
     font-weight: bold;
     border: none;
@@ -96,9 +60,7 @@ export const BackButton = styled.button`
     cursor: pointer;
     display: inline-block;
     font-size: 12px;
-    margin-bottom: 10px;
-    margin-left: 10px;
-    margin-top: 20px;
+    margin-top: 100px;
     outline: none;
     padding: 10px 20px;
     text-align: center;	

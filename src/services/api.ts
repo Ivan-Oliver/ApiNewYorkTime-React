@@ -10,6 +10,13 @@ export type booklist = {
 
 }
 
+export type bookDetails = {
+    book_image: string
+    title: string
+    description: string
+    amazon_product_url: string
+}
+
 
 export const fetchData = async () => {
     let books: booklist[] = getData()

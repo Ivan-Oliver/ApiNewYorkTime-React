@@ -1,61 +1,47 @@
-import React, { FC } from 'react'
-import { useState, useEffect } from 'react'
-import { booklist, fetchData, getListDetails } from '../../services/api'
+import React, { FC, useState, useEffect, useCallback  } from 'react'
+import { booklist, fetchData } from '../../services/api'
 import { ThemeProvider } from 'styled-components'
-import { MaxContenedor, MainContainer, ContainerDetails, Title, ButtonAmazon, EnlaceAmazon, Image, Description, BackButton } from '../../components/card/style'
+import { EnlaceAmazon} from '../../components/card/style'
+import { MaxContenedor} from '../Home/style'
+
 import theme from '../../styles/theme'
 import Card from '../../components/card/card'
+import { useNavigate, useParams } from 'react-router-dom'
 
 const Home: FC = () => {
 
     const [data, setData] = useState<booklist[]>([])
-    const [dataDetails, setDataDetails] = useState<any[]>([])
-    const [showList, setShowList] = useState<boolean>(true)
+    const navigate = useNavigate()
+
     useEffect(() => {
         fetchData().then(data => {
-            if (data) {
-                setData(data)
-            }
-        })
+        if (data) {
+          setData(data)
+        }
+      })
     }, [])
 
-    const callListDetails = async (listName: string) => {
-        const data = await getListDetails(listName)
-        setDataDetails(data)
-        setShowList(false)
-    }
+   const goToDetails = useCallback((listName:string) => {
+    navigate(`/details/${listName}`)
+  }, [navigate])
 
     return (
         <ThemeProvider theme={theme}>
             <MaxContenedor>
-                {showList && data?.map(bookList => (
+                {data?.map(bookList => (
                     <Card
                         title={bookList.display_name}
                         description={bookList.updated}
                         newest_published_date={bookList.newest_published_date}
                         oldest_published_date={bookList.oldest_published_date}
                         listName={bookList.list_name_encoded}
-                        onClick={callListDetails}
+                        onClick={goToDetails}
                     />
                 ))}
-                <header><BackButton className="back" onClick={() => setShowList(true)}>Back</BackButton></header>
-                {!showList && dataDetails?.map(listDetails => (
-                    <>
-                        <MainContainer>
-                            <ContainerDetails>
-                                <Title>{listDetails.title}</Title>
-                                <Image src={listDetails.book_image} ></Image>
-                                <Description>{listDetails.description}</Description>
-                                <ButtonAmazon><EnlaceAmazon href={listDetails.amazon_product_url}>Amazon</EnlaceAmazon></ButtonAmazon>
-                            </ContainerDetails>
-                        </MainContainer>
-                    </>
-
-
-                ))}
-            </MaxContenedor>
-        </ThemeProvider>
+                </MaxContenedor>
+                </ThemeProvider>
+               
     )
 }
 
-export default Home
+export default React.memo(Home);

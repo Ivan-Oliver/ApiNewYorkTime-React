@@ -4,7 +4,7 @@ import { CustomButton } from './styles'
 
 const Button: FC<Props> = ({onClick}) => {
     return(
-        <CustomButton className='seemore' onClick={onClick}>See More</CustomButton>
+        <CustomButton onClick={onClick}>See More</CustomButton>
     )
 }
 
