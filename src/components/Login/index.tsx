@@ -15,9 +15,10 @@ const Login: FC<Props> = () => {
     const [password, setPassword] = useState('');
     const [error, setError] = useState<string | null>(null)
 
-    const handleLogin = async (event: React.FormEvent) => {
-        event.preventDefault();
+    const handleLogin = async (values: typeof initialValues, { setErrors }: any
+        ) => {
         try {
+            const {email,password}=values
             await signInWithEmailAndPassword(auth, email, password)
             navigate('/home')
         } catch (error) {
@@ -30,9 +31,7 @@ const Login: FC<Props> = () => {
         <FormContainer>
             <Formik
                 validationSchema={validationSchema}
-                onSubmit={(values) => {
-                    console.log('Hemos echo submit', values);
-                }}
+                onSubmit={handleLogin}
                 initialValues={initialValues}
             >
                 <Form>
@@ -69,7 +68,7 @@ const Login: FC<Props> = () => {
                             </>
                         )}
                     </Field>
-                    <FormButton onClick={handleLogin}>SignIn</FormButton>
+                    <FormButton type="submit">SignIn</FormButton>
                 </Form>
             </Formik>
 

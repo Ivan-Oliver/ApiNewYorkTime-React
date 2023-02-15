@@ -1,10 +1,11 @@
-import styled from "styled-components";
- 
+import styled, { css } from "styled-components";
+import { Form as DefaultForm } from "formik";
+
 
 export const FormContainer = styled.div`
 
 `
-export const Form = styled.div`
+export const Form = styled(DefaultForm)`
 display: flex;
 flex-flow: column;  
 box-shadow: 0px 0px 10px 2px black;
@@ -20,12 +21,26 @@ font-weight: bold;
 font-family:Arial, Helvetica, sans-serif;
 font-size:24PX;
 `
-export const Input = styled.input`
+export const Input = styled.input<{$hasError?: boolean}>`
+border:0.1px solid ${({$hasError, theme}) => $hasError ? theme.colors.danger: theme.colors.secondary};
+background-color: transparent;
+  color: ${({theme}) => theme.colors.black};
 font-size: 24px;
 margin: 25px;
 border: none;
-  background-color: transparent;
-  color: ${({theme}) => theme.colors.black};
+
+
+${({ $hasError, theme }) =>
+
+        $hasError && css`
+        color:${theme.colors.black}
+`};
+
+`
+export const Error=styled.span`
+color: ${({ theme }) => theme.colors.danger};
+color:red;
+font-size: 16px;
 
 `
 

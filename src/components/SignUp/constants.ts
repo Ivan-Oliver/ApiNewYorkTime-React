@@ -6,7 +6,7 @@ export const validationSchema = Yup.object().shape({
     .required('El campo email es requerido'),
   password: Yup.string()
     .min(4, 'Too Short!')
-    .max(20, 'Too Long!')
+    .max(8, 'Too Long!')
     .required('Required'),
 });
 

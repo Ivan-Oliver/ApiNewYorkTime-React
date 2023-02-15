@@ -1,10 +1,13 @@
-import { FC } from 'react'
+import { FC, memo } from 'react'
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../services/firebase'
 import { Props } from './types'
-import { Form, FormButton, FormContainer, Input, FormMessage } from './style';
+import { Form, FormButton, FormContainer, Input, FormMessage, Error } from './style';
+import { Formik, Field } from 'formik';
+import { validationSchema } from './constants';
+import { initialValues } from './constants';
 
 const SignUp: FC<Props> = () => {
 
@@ -26,30 +29,53 @@ const SignUp: FC<Props> = () => {
 
     return (
         <FormContainer>
-            {error && <p>{error}</p>}
-            <Form
+            <Formik
+                validationSchema={validationSchema}
+                onSubmit={(values) => {
+                    console.log('Hemos echo submit', values);
+                }}
+                initialValues={initialValues}
             >
-                <FormMessage>Register</FormMessage>
-                <Input
-                    type="email"
-                    name="email"
-                    value={email}
-                    placeholder="Wirte yout email..."
-                    onChange={(event) => setEmail(event.target.value)}
-                />
-                <Input
-                    type="password"
-                    name="password"
-                    value={password}
-                    placeholder="Wirte yout password..."
-                    onChange={(event) => setPassword(event.target.value)}
-                />
-                <FormButton onClick={handleSignup}>Signup</FormButton>
-            </Form>
+                <Form>
+                    <Field name="email">
+                        {({ field, meta }: { field: any, meta: any }) => (
+                            <>
+                                <FormMessage>Register</FormMessage>
+                                <Input
+                                    type="email"
+                                    value={email}
+                                    placeholder="Wirte yout email..."
+                                    onChange={(event) => setEmail(event.target.value)}
+                                    {...field}
+
+                                />
+                                {!!meta?.error && <Error>{meta.error}</Error>}
+                            </>
+                        )}
+                    </Field>
+                    <Field name="password">
+                        {({ field, meta }: { field: any, meta: any }) => (
+                            <>
+                                <Input
+                                    type="password"
+                                    value={password}
+                                    placeholder="Wirte yout password..."
+                                    onChange={(event) => setPassword(event.target.value)}
+                                    {...field}
+
+                                />
+                                {!!meta?.error && <Error>{meta.error}</Error>}
+                            </>
+                        )}
+                    </Field>
+                    <FormButton onClick={handleSignup}>Signup</FormButton>
+                </Form>
+            </Formik>
+
         </FormContainer>
 
 
     );
 };
 
-export default SignUp;
+export default memo(SignUp);
