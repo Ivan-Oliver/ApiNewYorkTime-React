@@ -9,9 +9,11 @@ const Router: FC = () => {
     return (
         <BrowserRouter>
         <Routes>
+            <Route path='/' element={<Acces/>}/>
             <Route path='/home' element={<Home/>}/>
             <Route path="/details/:listName" element={<Details />}></Route>
             <Route path="/login" element={<Acces />}></Route>
+            <Route path='*' element={<Acces/>}/>
 
         </Routes>
         </BrowserRouter>

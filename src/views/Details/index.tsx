@@ -17,7 +17,7 @@ const Details: FC = () => {
     }, [])
 
     const goToBack = useCallback(() => {
-        navigate('/')
+        navigate('/home')
     }, [navigate])
 
     useEffect(() => {

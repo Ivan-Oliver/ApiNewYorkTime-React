@@ -9,7 +9,7 @@
  color:#fff;
   width: 100%;
   height: 100%;
-  background:linear-gradient(45deg,red,blue,green,black);
+  background:linear-gradient(45deg,gray,white,black);
   background-size:400% 400%;
   position: relative; `
  

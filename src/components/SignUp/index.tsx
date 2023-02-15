@@ -2,7 +2,7 @@ import { FC } from 'react'
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../../services/firabase'
+import { auth } from '../../services/firebase'
 import { Props } from './types'
 import { Form, FormButton, FormContainer, Input, FormMessage } from './style';
 
@@ -34,14 +34,14 @@ const SignUp: FC<Props> = () => {
                     type="email"
                     name="email"
                     value={email}
-                    placeholder="Email"
+                    placeholder="Wirte yout email..."
                     onChange={(event) => setEmail(event.target.value)}
                 />
                 <Input
                     type="password"
                     name="password"
                     value={password}
-                    placeholder="Password"
+                    placeholder="Wirte yout password..."
                     onChange={(event) => setPassword(event.target.value)}
                 />
                 <FormButton onClick={handleSignup}>Signup</FormButton>

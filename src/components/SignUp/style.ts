@@ -5,34 +5,35 @@ export const FormContainer = styled.div`
 
 `
 export const Form = styled.div`
-border: solid 1px black;
 display: flex;
 flex-flow: column;  
-box-shadow: 0px 0px 10px 2px rgba(176,176,176,1);
+box-shadow: 0px 0px 10px 2px black;
 margin: 30px;
-margin-left: 150px;
+margin-left: 100px;
 padding-bottom: 200px;
-height: 100px;
-width: 100;
+height: 200px;
 `
 
 export const FormMessage = styled.p`
-color:white;
+  color: ${({theme}) => theme.colors.white};
+font-weight: bold;
+font-family:Arial, Helvetica, sans-serif;
 font-size:24PX;
 `
 export const Input = styled.input`
 font-size: 24px;
+margin: 25px;
 border: none;
   background-color: transparent;
+  color: ${({theme}) => theme.colors.black};
 
 `
 
-export const FormButton = styled.div`
+export const FormButton = styled.button`
 background-color: ${({theme}) => theme.colors.blue300};
 display: inline-block;
-    margin-top: 20px;
-    margin-left: 25px;
-    margin-bottom: 10px;
+    margin-top: 80px;
+    margin-left: 15px;
     padding: 20px 90px;
     font-size: 12px;
     cursor: pointer;
