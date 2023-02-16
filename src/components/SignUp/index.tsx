@@ -16,13 +16,14 @@ const SignUp: FC<Props> = () => {
     const [password, setPassword] = useState('');
     const [error, setError] = useState<string | null>(null)
 
-    const handleSignup = async (event: React.FormEvent) => {
-        event.preventDefault();
+    const handleSignup = async (values: typeof initialValues, { setErrors }: any) => {
         try {
+            const {email,password} = values
             await createUserWithEmailAndPassword(auth, email, password)
             navigate('/home')
         } catch (error) {
-            // setError('Error al registrarse')
+             setError('Error al registrarse')
+             console.error(error)
         }
     };
 
@@ -31,9 +32,7 @@ const SignUp: FC<Props> = () => {
         <FormContainer>
             <Formik
                 validationSchema={validationSchema}
-                onSubmit={(values) => {
-                    console.log('Hemos echo submit', values);
-                }}
+                onSubmit={handleSignup}
                 initialValues={initialValues}
             >
                 <Form>
@@ -68,7 +67,7 @@ const SignUp: FC<Props> = () => {
                             </>
                         )}
                     </Field>
-                    <FormButton onClick={handleSignup}>Signup</FormButton>
+                    <FormButton type="submit">Signup</FormButton>
                 </Form>
             </Formik>
 

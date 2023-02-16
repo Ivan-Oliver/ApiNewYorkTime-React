@@ -21,10 +21,10 @@ font-size:24PX;
 font-weight: bold;
 
 `
-export const Input = styled.input<{$hasError?: boolean}>`
-border:0.1px solid ${({$hasError, theme}) => $hasError ? theme.colors.danger: theme.colors.secondary};
+export const Input = styled.input<{ $hasError?: boolean }>`
+border:0.1px solid ${({ $hasError, theme }) => $hasError ? theme.colors.danger : theme.colors.secondary};
 background-color: transparent;
-  color: ${({theme}) => theme.colors.black};
+  color: ${({ theme }) => theme.colors.black};
 font-size: 24px;
 margin: 25px;
 border: none;
@@ -32,12 +32,12 @@ border: none;
 
 ${({ $hasError, theme }) =>
 
-        $hasError && css`
+    $hasError && css`
         color:${theme.colors.black}
 `};
 
 `
-export const Error=styled.span`
+export const Error = styled.span`
 color: ${({ theme }) => theme.colors.danger};
 color:red;
 font-size: 16px;
@@ -49,7 +49,7 @@ export const FormButton = styled.button`
 background-color: ${({ theme }) => theme.colors.blue300};
 display: inline-block;
     margin-top: 42px;
-    margin-left: 15px;
+    margin-left: 55px;
     padding: 20px 90px;
     font-size: 12px;
     cursor: pointer;

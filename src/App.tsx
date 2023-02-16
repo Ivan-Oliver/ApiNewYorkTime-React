@@ -4,11 +4,11 @@ import Router from '../src/container/Router'
 
 function App() {
   return (
-<ThemeProvider theme={theme}>
-    <Router/>
-  </ThemeProvider>
+    <ThemeProvider theme={theme}>
+      <Router />
+    </ThemeProvider>
   )
-  
+
 }
 
 export default App;

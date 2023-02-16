@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const CustomButton = styled.button`
-background-color: ${({theme}) => theme.colors.blue300};
+background-color: ${({ theme }) => theme.colors.blue300};
 display: inline-block;
     margin-top: 20px;
     margin-left: 10px;
@@ -12,13 +12,13 @@ display: inline-block;
     text-align: center;	
     text-decoration: none;
     outline: none;
-    color: ${({theme}) => theme.colors.white100};
+    color: ${({ theme }) => theme.colors.white100};
     border: none;
     box-shadow: 0 2px #999;
     border-radius: 2px;
     width: fit-content;
     &:hover {
-    background-color: ${({theme}) => theme.colors.black};
+    background-color: ${({ theme }) => theme.colors.black};
     font-size: 14px;
     }
 `

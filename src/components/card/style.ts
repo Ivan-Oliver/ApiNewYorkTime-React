@@ -38,7 +38,7 @@ export const ButtonAmazon = styled.button`
     }
 `
 
-export const  EnlaceAmazon = styled.a`
+export const EnlaceAmazon = styled.a`
     color: ${({ theme }) => theme.colors.black};
     font-weight: bold;
 `

@@ -8,6 +8,8 @@ import { Form, FormButton, FormContainer, Input, FormMessage, Error } from './st
 import { Formik, Field } from 'formik';
 import { validationSchema } from './constants';
 import { initialValues } from './constants';
+import { setAuthenticatedToken } from '../../services/storage';
+
 const Login: FC<Props> = () => {
 
     const navigate = useNavigate()
@@ -15,11 +17,14 @@ const Login: FC<Props> = () => {
     const [password, setPassword] = useState('');
     const [error, setError] = useState<string | null>(null)
 
-    const handleLogin = async (values: typeof initialValues, { setErrors }: any
-        ) => {
+    const handleLogin = async (values: typeof initialValues, { setErrors }: any) => {
         try {
-            const {email,password}=values
-            await signInWithEmailAndPassword(auth, email, password)
+            const { email, password } = values
+            const userCredentialsLogin = await signInWithEmailAndPassword(auth, email, password)
+
+            const token = await userCredentialsLogin.user.getIdToken()
+            setAuthenticatedToken(token)
+
             navigate('/home')
         } catch (error) {
             setError('Error al registrarse')

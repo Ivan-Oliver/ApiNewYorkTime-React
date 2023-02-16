@@ -11,7 +11,7 @@ export type Props = {
     description?: string
     image?: string
     bookUrl?: string
-    onClick?: (listName:string) => void
+    onClick?: (listName: string) => void
     type?: 'list' | 'details'
     children?: ReactNode
 }
